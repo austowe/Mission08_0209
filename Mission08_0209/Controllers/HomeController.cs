@@ -24,11 +24,6 @@ namespace Mission08_0209.Controllers
             return View();
         }
 
-        public IActionResult Quadrants()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult AddTask()
         {
@@ -57,13 +52,13 @@ namespace Mission08_0209.Controllers
         }
 
         [HttpGet]
-        public IActionResult MovieList()
+        public IActionResult Quadrants()
         {
-            var movies = taskContext.Tasks
+            var tasks = taskContext.Tasks
                 .Include(x => x.Category)
                 .ToList();
 
-            return View(movies);
+            return View(tasks);
         }
 
         [HttpGet]
