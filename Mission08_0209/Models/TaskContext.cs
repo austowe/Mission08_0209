@@ -18,7 +18,7 @@ namespace Mission08_0209.Models
         public DbSet<Quadrant> Quadrants { get; set; }
         public DbSet<Category> Category { get; set; }
 
-        // seeded movies
+        // seeded data
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<Quadrant>().HasData(
