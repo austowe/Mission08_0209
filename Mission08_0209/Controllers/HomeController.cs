@@ -33,7 +33,7 @@ namespace Mission08_0209.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddMovie(Models.Task nt)
+        public IActionResult AddTask(Models.Task nt)
         {
             if (ModelState.IsValid)
             {
