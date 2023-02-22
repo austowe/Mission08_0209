@@ -68,7 +68,7 @@ namespace Mission08_0209.Controllers
 
             var task = taskContext.Tasks.Single(x => x.TaskId == taskid);
 
-            return View("AddMovie", task);
+            return View("AddTask", task);
         }
 
         [HttpPost]
@@ -77,7 +77,7 @@ namespace Mission08_0209.Controllers
             taskContext.Update(nt);
             taskContext.SaveChanges();
 
-            return RedirectToAction("MovieList");
+            return RedirectToAction("Quadrants");
         }
 
         [HttpGet]
@@ -93,7 +93,7 @@ namespace Mission08_0209.Controllers
             taskContext.Tasks.Remove(nt);
             taskContext.SaveChanges();
 
-            return RedirectToAction("MovieList");
+            return RedirectToAction("Quadrants");
         }
 
     }
