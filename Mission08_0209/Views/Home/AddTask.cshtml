@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Add Task";
+}
+
+@model Mission08_0209.Models.Task
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to enter movies.</p>
+<div>
+    <form method="post">
+
+        <div asp-validation-summary="All"></div> <!--Error Messages-->
+
+        <label asp-for="Task_Name"> Task Name: </label>
+        <input asp-for="Task_Name" /> <br />
+
+        <label asp-for="Due_Date"> Due Date: </label>
+        <input asp-for="Due_Date" /> <br />
+
+        <label asp-for="Quadrant"> Quadrant: </label>
+        <select asp-for="Quadrant">
+            <option value="">--</option>
+            <option value="1">Quadrant 1</option>
+            <option value="2">Quadrant 2</option>
+            <option value="3">Quadrant 3</option>
+            <option value="4">Quadrant 4</option>
+        </select> <br />
+
+        <!--Populate dropdown (FK)-->
+        <label asp-for="CategoryId"> Category: </label>
+        <select asp-for="CategoryId">
+            <option value="">Select a category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select> <br />
+
+        <label asp-for="Completed"> Completed: </label>
+        <select asp-for="Completed">
+            <option value="">--</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select> <br />
+
+    </form>
+</div>       

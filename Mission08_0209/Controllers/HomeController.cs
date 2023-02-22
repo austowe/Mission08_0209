@@ -52,7 +52,7 @@ namespace Mission08_0209.Controllers
         }
 
         [HttpGet]
-        public IActionResult Quadrants()
+        public IActionResult Quadrant()
         {
             var tasks = taskContext.Tasks
                 .Include(x => x.Category)
@@ -77,7 +77,7 @@ namespace Mission08_0209.Controllers
             taskContext.Update(nt);
             taskContext.SaveChanges();
 
-            return RedirectToAction("Quadrants");
+            return RedirectToAction("Quadrant");
         }
 
         [HttpGet]
