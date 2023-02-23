@@ -93,7 +93,7 @@ namespace Mission08_0209.Controllers
             taskContext.Tasks.Remove(nt);
             taskContext.SaveChanges();
 
-            return RedirectToAction("Quadrants");
+            return RedirectToAction("Quadrant");
         }
 
     }
