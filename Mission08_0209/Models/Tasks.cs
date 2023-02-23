@@ -14,7 +14,8 @@ namespace Mission08_0209.Models
         [Required]
         [MaxLength(25)]
         public string Task_Name { get; set; }
-        public string Quandrant { get; set; }
+        [Required]
+        public string Quadrant { get; set; }
         public string Due_Date { get; set; }
         public bool Completed { get; set; }
 
