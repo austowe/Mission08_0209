@@ -1,4 +1,279 @@
-﻿@{
+@{
     ViewData["Title"] = "Quadrant View";
-
 }
+
+@model List<Mission08_0209.Models.Task>
+
+<h1>@ViewData["Title"]</h1>
+
+@{ bool empty = true;}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <!--A div with 10px space beneath-->
+            <div style="padding-bottom:10px;">
+
+                <!--The button for current collapsable section.-->
+                <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="collapse" data-target="#collapse1" aria-controls="collapse1" aria-expanded="true" style="width:100%">
+                    <!--The button header. E.g "Quadrant 1 - Important/Urgent"-->
+                    <h6>Quadrant 1 - Important/Urgent</h6>
+                </button>
+
+                <!--The collapsable navbar section, which is linked to the button as "collapse1"-->
+                <div class="navbar-collapse collapse show" id="collapse1">
+
+                    @{
+                        empty = true;
+                        <!--Iterate through all database records-->
+                        foreach (var r in Model)
+                        {
+                            <!--If the current record's quadrant is quadrant 1-->
+                            if (r.Quadrant == "Quadrant 1")
+                            {
+                                <!--Set empty to false and break out-->
+                                empty = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    <!--Will only display a table if there is at least one record in current quadrant-->
+                    @if (empty == false)
+                    {
+                        <table class="table table-bordered table-striped">
+
+                            <!--Table body-->
+                            <tbody>
+                                <!--Iterate through all database records-->
+                                @foreach (var r in Model)
+                                {
+                                    <!--If the current record's quadrant is quadrant 1-->
+                                    @if (r.Quadrant == "Quadrant 1")
+                                    {
+                                        <!--If the task is incomplete-->
+                                        @if (r.Completed == false) 
+                                        { 
+                                            <tr>
+                                                <!--Display record attributes-->
+                                                <td>@r.Task_Name</td>
+                                                <td align="center">Due: @r.Due_Date</td>
+
+                                                <!--Buttons for editing and deleting-->
+                                                <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="badge">Edit</a></td>
+                                                <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="badge">Delete</a></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <div align="center" style="color:gray; font-style:italic">--No tasks to show--</div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <!--A div with 10px space beneath-->
+            <div style="padding-bottom:10px;">
+
+                <!--The button for current collapsable section.-->
+                <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="collapse" data-target="#collapse2" aria-controls="collapse2" aria-expanded="false" style="width:100%">
+                    <!--The button header. E.g "Quadrant 1 - Important/Urgent"-->
+                    <h6>Quadrant 2 - Important/Not Urgent</h6>
+                </button>
+
+                <!--The collapsable navbar section, which is linked to the button as "collapse2"-->
+                <div class="navbar-collapse collapse show" id="collapse2">
+
+                    @{
+                        empty = true;
+                        <!--Iterate through all database records-->
+                        foreach (var r in Model)
+                        {
+                            <!--If the current record's quadrant is quadrant 2-->
+                            if (r.Quadrant == "Quadrant 2")
+                            {
+                                <!--Set empty to false and break out-->
+                                empty = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    <!--Will only display a table if there is at least one record in current quadrant-->
+                    @if (empty == false)
+                    {
+                        <table class="table table-bordered table-striped">
+
+                            <!--Table body-->
+                            <tbody>
+                                <!--Iterate through all database records-->
+                                @foreach (var r in Model)
+                                {
+                                    <!--If the current record's quadrant is quadrant 2-->
+                                    @if (r.Quadrant == "Quadrant 2")
+                                    {
+                                        <!--If the task is incomplete-->
+                                        @if (r.Completed == false)
+                                        {
+                                            <tr>
+                                                <!--Display record attributes-->
+                                                <td>@r.Task_Name</td>
+                                                <td align="center">Due: @r.Due_Date</td>
+
+                                                <!--Buttons for editing and deleting-->
+                                                <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="badge">Edit</a></td>
+                                                <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="badge">Delete</a></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <div align="center" style="color:gray; font-style:italic">--No tasks to show--</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <!--A div with 10px space beneath-->
+            <div style="padding-bottom:10px;">
+
+                <!--The button for current collapsable section.-->
+                <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="collapse" data-target="#collapse3" aria-controls="collapse3" aria-expanded="false" style="width:100%">
+                    <!--The button header. E.g "Quadrant 1 - Important/Urgent"-->
+                    <h6>Quadrant 3 - Not Important/Urgent</h6>
+                </button>
+
+                <!--The collapsable navbar section, which is linked to the button as "collapse3"-->
+                <div class="navbar-collapse collapse show" id="collapse3">
+
+                    @{
+                        empty = true;
+                        <!--Iterate through all database records-->
+                        foreach (var r in Model)
+                        {
+                            <!--If the current record's quadrant is quadrant 3-->
+                            if (r.Quadrant == "Quadrant 3")
+                            {
+                                <!--Set empty to false and break out-->
+                                empty = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    <!--Will only display a table if there is at least one record in current quadrant-->
+                    @if (empty == false)
+                    {
+                        <table class="table table-bordered table-striped">
+
+                            <!--Table body-->
+                            <tbody>
+                                <!--Iterate through all database records-->
+                                @foreach (var r in Model)
+                                {
+                                    <!--If the current record's quadrant is quadrant 3-->
+                                    @if (r.Quadrant == "Quadrant 3")
+                                    {
+                                        <!--If the task is incomplete-->
+                                        @if (r.Completed == false)
+                                        {
+                                            <tr>
+                                                <!--Display record attributes-->
+                                                <td>@r.Task_Name</td>
+                                                <td align="center">Due: @r.Due_Date</td>
+
+                                                <!--Buttons for editing and deleting-->
+                                                <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="badge">Edit</a></td>
+                                                <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="badge">Delete</a></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <div align="center" style="color:gray; font-style:italic">--No tasks to show--</div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <!--A div with 10px space beneath-->
+            <div style="padding-bottom:10px;">
+
+                <!--The button for current collapsable section.-->
+                <button class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="collapse" data-target="#collapse4" aria-controls="collapse4" aria-expanded="false" style="width:100%">
+                    <!--The button header. E.g "Quadrant 1 - Important/Urgent"-->
+                    <h6>Quadrant 4 - Not Important/Not Urgent</h6>
+                </button>
+
+                <!--The collapsable navbar section, which is linked to the button as "collapse4"-->
+                <div class="navbar-collapse collapse show" id="collapse4">
+
+                    @{
+                        empty = true;
+                        <!--Iterate through all database records-->
+                        foreach (var r in Model)
+                        {
+                            <!--If the current record's quadrant is quadrant 4-->
+                            if (r.Quadrant == "Quadrant 4")
+                            {
+                                <!--Set empty to false and break out-->
+                                empty = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    <!--Will only display a table if there is at least one record in current quadrant-->
+                    @if (empty == false)
+                    {
+                        <table class="table table-bordered table-striped">
+
+                            <!--Table body-->
+                            <tbody>
+                                <!--Iterate through all database records-->
+                                @foreach (var r in Model)
+                                {
+                                    <!--If the current record's quadrant is quadrant 4-->
+                                    @if (r.Quadrant == "Quadrant 4")
+                                    {
+                                        <!--If the task is incomplete-->
+                                        @if (r.Completed == false)
+                                        {
+                                            <tr>
+                                                <!--Display record attributes-->
+                                                <td>@r.Task_Name</td>
+                                                <td align="center">Due: @r.Due_Date</td>
+
+                                                <!--Buttons for editing and deleting-->
+                                                <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="badge">Edit</a></td>
+                                                <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="badge">Delete</a></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <div align="center" style="color:gray; font-style:italic">--No tasks to show--</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
