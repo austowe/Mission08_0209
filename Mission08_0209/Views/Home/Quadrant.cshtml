@@ -27,8 +27,8 @@
                         <!--Iterate through all database records-->
                         foreach (var r in Model)
                         {
-                            <!--If the current record's quadrant is quadrant 1-->
-                            if (r.Quadrant == "Quadrant 1")
+                            <!--If the current record's quadrant is quadrant 1 and task is incomplete-->
+                            if (r.Quadrant == "1" && r.Completed == false)
                             {
                                 <!--Set empty to false and break out-->
                                 empty = false;
@@ -37,7 +37,7 @@
                         }
                     }
 
-                    <!--Will only display a table if there is at least one record in current quadrant-->
+                    <!--Will only display a table if there is at least one incomplete task in current quadrant-->
                     @if (empty == false)
                     {
                         <table class="table table-bordered table-striped">
@@ -47,22 +47,18 @@
                                 <!--Iterate through all database records-->
                                 @foreach (var r in Model)
                                 {
-                                    <!--If the current record's quadrant is quadrant 1-->
-                                    @if (r.Quadrant == "Quadrant 1")
+                                    <!--If the current record's quadrant is quadrant 1 and task is incomplete, display row-->
+                                    @if (r.Quadrant == "1" && r.Completed == false)
                                     {
-                                        <!--If the task is incomplete-->
-                                        @if (r.Completed == false) 
-                                        { 
-                                <tr>
-                                    <!--Display record attributes-->
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
+                                        <tr>
+                                            <!--Display record attributes-->
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
 
-                                    <!--Buttons for editing and deleting-->
-                                    <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
-                                    <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
-                                </tr>
-                                        }
+                                            <!--Buttons for editing and deleting-->
+                                            <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
+                                            <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
+                                        </tr>
                                     }
                                 }
                             </tbody>
@@ -93,8 +89,8 @@
                         <!--Iterate through all database records-->
                         foreach (var r in Model)
                         {
-                            <!--If the current record's quadrant is quadrant 2-->
-                            if (r.Quadrant == "Quadrant 2")
+                            <!--If the current record's quadrant is quadrant 2 and task is incomplete-->
+                            if (r.Quadrant == "2" && r.Completed == false)
                             {
                                 <!--Set empty to false and break out-->
                                 empty = false;
@@ -113,22 +109,18 @@
                                 <!--Iterate through all database records-->
                                 @foreach (var r in Model)
                                 {
-                                    <!--If the current record's quadrant is quadrant 2-->
-                                    @if (r.Quadrant == "Quadrant 2")
+                                    <!--If the current record's quadrant is quadrant 2 and task is incomplete-->
+                                    @if (r.Quadrant == "2" && r.Completed == false)
                                     {
-                                        <!--If the task is incomplete-->
-                                        @if (r.Completed == false)
-                                        {
-                                <tr>
-                                    <!--Display record attributes-->
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
+                                        <tr>
+                                            <!--Display record attributes-->
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
 
-                                    <!--Buttons for editing and deleting-->
-                                    <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
-                                    <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
-                                </tr>
-                                        }
+                                            <!--Buttons for editing and deleting-->
+                                            <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
+                                            <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
+                                        </tr>
                                     }
                                 }
                             </tbody>
@@ -161,8 +153,8 @@
                         <!--Iterate through all database records-->
                         foreach (var r in Model)
                         {
-                            <!--If the current record's quadrant is quadrant 3-->
-                            if (r.Quadrant == "Quadrant 3")
+                            <!--If the current record's quadrant is quadrant 3 and task is incomplete-->
+                            if (r.Quadrant == "3" && r.Completed == false)
                             {
                                 <!--Set empty to false and break out-->
                                 empty = false;
@@ -181,22 +173,18 @@
                                 <!--Iterate through all database records-->
                                 @foreach (var r in Model)
                                 {
-                                    <!--If the current record's quadrant is quadrant 3-->
-                                    @if (r.Quadrant == "Quadrant 3")
+                                    <!--If the current record's quadrant is quadrant 3 and task is incomplete-->
+                                    @if (r.Quadrant == "3" && r.Completed == false)
                                     {
-                                        <!--If the task is incomplete-->
-                                        @if (r.Completed == false)
-                                        {
-                                <tr>
-                                    <!--Display record attributes-->
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
+                                        <tr>
+                                            <!--Display record attributes-->
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
 
-                                    <!--Buttons for editing and deleting-->
-                                    <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
-                                    <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
-                                </tr>
-                                        }
+                                            <!--Buttons for editing and deleting-->
+                                            <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
+                                            <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
+                                        </tr>
                                     }
                                 }
                             </tbody>
@@ -227,8 +215,8 @@
                         <!--Iterate through all database records-->
                         foreach (var r in Model)
                         {
-                            <!--If the current record's quadrant is quadrant 4-->
-                            if (r.Quadrant == "Quadrant 4")
+                            <!--If the current record's quadrant is quadrant 4 and task is incomplete-->
+                            if (r.Quadrant == "4" && r.Completed == false)
                             {
                                 <!--Set empty to false and break out-->
                                 empty = false;
@@ -247,22 +235,18 @@
                                 <!--Iterate through all database records-->
                                 @foreach (var r in Model)
                                 {
-                                    <!--If the current record's quadrant is quadrant 4-->
-                                    @if (r.Quadrant == "Quadrant 4")
+                                    <!--If the current record's quadrant is quadrant 4 and task is incomplete-->
+                                    @if (r.Quadrant == "4" && r.Completed == false)
                                     {
-                                        <!--If the task is incomplete-->
-                                        @if (r.Completed == false)
-                                        {
-                                <tr>
-                                    <!--Display record attributes-->
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
-                                    <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
+                                        <tr>
+                                            <!--Display record attributes-->
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Task: </a>@r.Task_Name</td>
+                                            <td align="center" style="font-weight:bold"><a style="font-weight:normal">Due: </a>@r.Due_Date</td>
 
-                                    <!--Buttons for editing and deleting-->
-                                    <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
-                                    <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
-                                </tr>
-                                        }
+                                            <!--Buttons for editing and deleting-->
+                                            <td align="center"><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@r.TaskId" style="background-color:white; color:black; border: 1px solid black" class="btn-sm">Edit</a></td>
+                                            <td align="center"><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@r.TaskId" style="background-color: indianred; color: white; border: 1px solid black" class="btn-sm">Delete</a></td>
+                                        </tr>
                                     }
                                 }
                             </tbody>
