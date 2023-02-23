@@ -14,14 +14,10 @@ namespace Mission08_0209.Models
         [Required]
         [MaxLength(25)]
         public string Task_Name { get; set; }
+        public string Quandrant { get; set; }
         public string Due_Date { get; set; }
         public bool Completed { get; set; }
 
-
-        // foriegn key for Quadrant
-        [Required]
-        public int QuadrantId { get; set; }
-        public Quadrant Quadrant { get; set; }
 
         // foriegn key for Category
         [Required]
