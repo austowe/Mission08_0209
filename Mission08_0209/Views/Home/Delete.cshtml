@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Delete";
+}
+@model Mission08_0209.Models.Task
+
+<h1>Confirm Deletion</h1>
+<p>Are you sure you want to remove the task "<a style="font-weight:bold;">@Model.Task_Name</a>?".</p>
+
+<form method="post" asp-controller="Home" asp-action="Delete">
+    <button style="background-color:indianred; color:white; border: 1px solid black" class="btn" type="submit">Yes</button>
+    <a asp-controller="Home" asp-action="Quadrant" style="background-color:white; color:black; border: 1px solid black" class="btn">No, take me back</a>
+
+    <input type="hidden" asp-for="TaskId" />
+</form>
